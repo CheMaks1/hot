@@ -1,0 +1,5 @@
+login_field_loc = "//input[contains(@id, 'loginform-login')]"
+password_field_loc = "//input[contains(@id, 'loginform-password')]"
+button_loc = "//button[contains(@type, 'submit')]"
+error_alert_text_loc = "//p[contains(normalize-space(.), 'Incorrect username/email or password.')]"
+dashboard_text_loc = "//p[contains(normalize-space(.), 'These are the summary of your account')]"

@@ -1,11 +1,22 @@
-from selenium import webdriver
+# from playwright.sync_api import BrowserContext
 import pytest
-from time import sleep
+from pages.advertiser_login import AdvertiserLogin
+from pages.create_promo_page import PromoPage
 
 
 @pytest.fixture()
-def driver():
-    chrome_driver = webdriver.Chrome()
-    chrome_driver.maximize_window()
-    sleep(3)
-    return chrome_driver
+def sign_in_page(page):
+    return AdvertiserLogin(page)
+
+
+@pytest.fixture()
+def create_promo_page(page):
+    return PromoPage(page)
+
+
+# @pytest.fixture()
+# def page(context: BrowserContext, playwright):
+#     playwright.selectors.set_test_id_attribute("id")
+#     page = context.new_page()
+#     page.set_viewport_size({'width': 1920, 'height': 1080})
+#     return page
