@@ -10,7 +10,7 @@ def generate_random_string(length):
     return ''.join(random.choice(letters) for _ in range(length))
 
 
-@allure.feature('Create text promo')
+@allure.feature('Create Text promo')
 def test_create_text_promo(sign_in_page, create_promo_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('asdasd8', '123qwe')
@@ -20,6 +20,7 @@ def test_create_text_promo(sign_in_page, create_promo_page):
     create_promo_page.create_text_promo(random_description)
 
 
+@allure.feature('Create Image promo')
 def test_create_image_promo(sign_in_page, create_promo_page):
     try:
         sign_in_page.open_page()
@@ -34,6 +35,7 @@ def test_create_image_promo(sign_in_page, create_promo_page):
         raise e
 
 
+@allure.feature('Create URL promo')
 def test_create_url_promo(sign_in_page, create_promo_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('asdasd8', '123qwe')

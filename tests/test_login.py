@@ -2,7 +2,7 @@ from conftest import sign_in_page
 import allure
 
 
-@allure.feature('Incorrect login')
+@allure.feature('Incorrect Login')
 def test_incorrect_login(sign_in_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('fasdoifj', 'asodjknf')
@@ -11,7 +11,8 @@ def test_incorrect_login(sign_in_page):
     )
 
 
-@allure.feature('Correct login')
+@allure.feature('Correct Login')
+@allure.description('Проверяем логин')
 def test_correct_login(sign_in_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('asdasd8', '123qwe')
