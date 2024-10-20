@@ -21,11 +21,17 @@ def test_create_text_promo(sign_in_page, create_promo_page):
 
 
 def test_create_image_promo(sign_in_page, create_promo_page):
-    sign_in_page.open_page()
-    sign_in_page.fill_login_form('asdasd8', '123qwe')
-    sign_in_page.check_dashboard_text('These are the summary of your account')
-    create_promo_page.open_promotions_page()
-    create_promo_page.create_image_promo()
+    try:
+        sign_in_page.open_page()
+        sign_in_page.fill_login_form('asdasd8', '123qwe')
+        sign_in_page.check_dashboard_text('These are the summary of your account')
+        create_promo_page.open_promotions_page()
+        create_promo_page.create_image_promo()
+    except Exception as e:
+        screenshot_path = f"screenshots/test_create_image_promo.png"
+        create_promo_page.page.screenshot(path=screenshot_path)
+        allure.attach.file(screenshot_path, name="Screenshot", attachment_type=allure.attachment_type.PNG)
+        raise e
 
 
 def test_create_url_promo(sign_in_page, create_promo_page):
