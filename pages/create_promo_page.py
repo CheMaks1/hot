@@ -48,6 +48,7 @@ class PromoPage(BasePage):
         self.page.locator(loc.image_ads_loc).click()
         self.page.locator(loc.next_button_loc).click()
         self.page.locator(loc.phone_number_loc).fill('14805046058')
+        sleep(3)
         self.page.locator(loc.next_button_loc).click()
         self.page.locator(loc.choose_profile_card_loc).click()
         self.page.locator(loc.next_button_loc).click()
