@@ -13,6 +13,7 @@ def sign_in_page(page):
 def create_promo_page(page):
     return PromoPage(page)
 
+
 # @pytest.fixture()
 # def page(context: BrowserContext, playwright):
 #     playwright.selectors.set_test_id_attribute("id")
