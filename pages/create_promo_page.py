@@ -47,9 +47,11 @@ class PromoPage(BasePage):
     def create_image_promo(self):
         self.page.locator(loc.image_ads_loc).click()
         self.page.locator(loc.next_button_loc).click()
-        self.page.locator(loc.phone_number_loc).fill('19254063888')
+        phone_num = self.page.locator(loc.phone_number_loc)
+        phone_num.press('Backspace')
+        phone_num.type('16475280768', delay=100)
         self.page.locator(loc.next_button_loc).click()
-        self.page.locator(loc.choose_profile_card_loc).click()
+        self.page.locator(loc.choose_profile_card_loc).first.click()
         self.page.locator(loc.next_button_loc).click()
         self.page.locator(loc.choose_photo_loc).locator('nth=1').click()
         self.page.locator(loc.next_button_loc).click()
