@@ -1,4 +1,5 @@
 from playwright.sync_api import Page
+from pages.locators import login_locators as loc
 
 
 class BasePage:
@@ -16,3 +17,14 @@ class BasePage:
             self.page.goto(f'{self.base_url}{self.page_url}')
         else:
             raise NotImplementedError('Page can not be opened for this page class')
+
+    def fill_login_form(self, login, password):
+        login_field = self.page.locator(loc.login_field_loc)
+        password_field = self.page.locator(loc.password_field_loc)
+        button = self.page.locator(loc.button_loc)
+        login_field.fill(login)
+        password_field.fill(password)
+        if button.is_enabled():
+            button.click()
+        else:
+            self.page.locator(loc.title_for_click_loc).click()

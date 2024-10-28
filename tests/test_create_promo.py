@@ -14,7 +14,7 @@ def generate_random_string(length):
 def test_create_text_promo(sign_in_page, create_promo_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('asdasd8', '123qwe')
-    sign_in_page.check_dashboard_text('These are the summary of your account')
+    sign_in_page.check_dashboard_text()
     create_promo_page.open_promotions_page()
     random_description = generate_random_string(random.randint(5, 10))
     create_promo_page.create_text_promo(random_description)
@@ -24,8 +24,8 @@ def test_create_text_promo(sign_in_page, create_promo_page):
 def test_create_image_promo(sign_in_page, create_promo_page):
     try:
         sign_in_page.open_page()
-        sign_in_page.fill_login_form('asdasd8', '123qwe')
-        sign_in_page.check_dashboard_text('These are the summary of your account')
+        sign_in_page.fill_login_form('asdasd7', '123qwe')
+        sign_in_page.check_dashboard_text()
         create_promo_page.open_promotions_page()
         create_promo_page.create_image_promo()
     except Exception as e:
@@ -39,6 +39,15 @@ def test_create_image_promo(sign_in_page, create_promo_page):
 def test_create_url_promo(sign_in_page, create_promo_page):
     sign_in_page.open_page()
     sign_in_page.fill_login_form('asdasd8', '123qwe')
-    sign_in_page.check_dashboard_text('These are the summary of your account')
+    sign_in_page.check_dashboard_text()
     create_promo_page.open_promotions_page()
     create_promo_page.create_url_promo()
+
+
+@allure.feature('Create Top Spot promo')
+def test_create_top_spot_promo(sign_in_page, create_promo_page):
+    sign_in_page.open_page()
+    sign_in_page.fill_login_form('asdasd8', '123qwe')
+    sign_in_page.check_dashboard_text()
+    create_promo_page.open_promotions_page()
+    create_promo_page.create_top_spot_promo()

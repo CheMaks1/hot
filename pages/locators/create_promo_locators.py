@@ -1,3 +1,4 @@
+#text promo locators
 text_ads_loc = "//div[contains(text(),'Text Ads')]"
 next_button_loc = "//button[contains(text(),'Next')]"
 url_loc = "//input[contains(@name, 'url')]"
@@ -10,15 +11,22 @@ escort_category_loc = "//div[contains(text(),'Escorts')]"
 cpc_loc = "//input[contains(@name,'cpc')]"
 daily_loc = "//input[contains(@name,'daily')]"
 finish_button_loc = "//button[contains(text(),'Finish')]"
-
+#image promo locators
 image_ads_loc = "//div[contains(text(),'Image Promotions')]"
 phone_number_loc = "//input[contains(@class, 'form-control')]"
 choose_profile_card_loc = "//img[contains(@alt,'avatar')]"
 choose_photo_loc = "//div[contains(@class, 'thumbnail')]"
 checkout_button_loc = "//button[contains(text(), 'Checkout')]"
-
+image_promotions_list_loc= "//div[contains(text(), 'Toronto, ON, CA')]"
+#url promo locators
 url_ads_loc = "//div[contains(text(), 'URL Promotions')]"
 url_url_loc = "//input[contains(@placeholder, 'Enter your URL') and contains(@tabindex, '1')]"
 shemale_category_loc = "//input[contains(@type, 'checkbox') and contains(@data-name, 'Shemale Escorts')]"
 cpc_url_loc = "//input[contains(@data-summary-label, 'CPC Bid price')]"
 daily_url_loc = "//input[contains(@data-summary-label, 'Daily Budget')]"
+#top spot promo locators
+top_spot_loc = "//div[contains(text(),'Top Spot Images')]"
+destination_url_loc = "//input[contains(@placeholder,'Enter your URL')]"
+choose_top_spot_profile_card_loc = "//div[contains(@class, 'add-promotion-images-profile-dot')]"
+choose_top_spot_tumbnail_loc = "//div[contains(@class, 'radio-group_multiple')]//div[contains(@class, 'input')]//div[contains(@class, 'input__content')]"
+top_spot_category_escort_loc = "//input[contains(@data-id, 'escorts')]"

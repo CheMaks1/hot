@@ -1,17 +1,13 @@
 from playwright.sync_api import expect
-from pages.locators import text_promo_locators as loc
-from pages.locators import login_locators as loc1
+from pages.locators import create_promo_locators as loc
 from pages.base_page import BasePage
 from time import sleep
 
 
 class PromoPage(BasePage):
     page_url = 'profile#/create-promotion'
-
-    def fill_login_form(self, login, password):
-        self.page.locator(loc1.login_field_loc).fill(login)
-        self.page.locator(loc1.password_field_loc).fill(password)
-        self.page.locator(loc1.button_loc).click()
+    model_url_promo = 'https://adultsearch.com/georgia/atlanta/female-escorts/1112314'
+    model_top_spot_promo = 'https://adultsearch.com/us/arizona/phoenix/tstv-shemale-escorts/1852559'
 
     def create_text_promo(self, desc_text):
         text_promo = self.page.locator(loc.text_ads_loc)
@@ -56,14 +52,13 @@ class PromoPage(BasePage):
         self.page.locator(loc.choose_photo_loc).locator('nth=1').click()
         self.page.locator(loc.next_button_loc).click()
         self.page.locator(loc.checkout_button_loc).click()
+        list_promo = self.page.locator(loc.image_promotions_list_loc).locator('nth=0')
+        expect(list_promo).to_be_visible(timeout=10000)
 
     def create_url_promo(self):
-
         self.page.locator(loc.url_ads_loc).click()
         self.page.locator(loc.next_button_loc).click()
-        self.page.locator(loc.url_url_loc).type(
-            'https://adultsearch.com/georgia/atlanta/female-escorts/1112314', delay=10
-        )
+        self.page.locator(loc.url_url_loc).type(self.model_url_promo, delay=10)
         self.page.locator(loc.next_button_loc).locator('nth=0').click()
         self.page.wait_for_selector(loc.shemale_category_loc)
         self.page.locator(loc.shemale_category_loc).locator('nth=0').click()
@@ -72,3 +67,27 @@ class PromoPage(BasePage):
         self.page.locator(loc.daily_url_loc).fill('11')
         self.page.locator(loc.next_button_loc).locator('nth=0').click()
         self.page.locator(loc.next_button_loc).locator('nth=2').click()
+
+    def create_top_spot_promo(self):
+        self.page.locator(loc.top_spot_loc).click()
+        self.page.locator(loc.next_button_loc).click()
+        self.page.locator(loc.destination_url_loc).type(self.model_top_spot_promo, delay=10)
+        self.page.locator(loc.next_button_loc).locator('nth=0').click()
+        choose_profile = self.page.locator(loc.choose_top_spot_profile_card_loc).locator('nth=0')
+        expect(choose_profile).to_be_visible()
+        choose_profile.click()
+        self.page.locator(loc.next_button_loc).locator('nth=1').click()
+        self.page.locator(loc.choose_top_spot_tumbnail_loc).locator('nth=0').click()
+        self.page.locator(loc.next_button_loc).locator('nth=2').click()
+        choose_category = self.page.locator(loc.top_spot_category_escort_loc)
+        expect(choose_category).to_be_visible()
+        choose_category.click()
+        self.page.locator(loc.next_button_loc).locator('nth=4').click()
+        next_category_button = self.page.locator(loc.next_button_loc).locator('nth=6')
+        expect(next_category_button).to_be_visible()
+        next_category_button.click()
+        self.page.locator(loc.cpc_url_loc).fill('1')
+        self.page.locator(loc.daily_url_loc).fill('11')
+        self.page.locator(loc.next_button_loc).locator('nth=7').click()
+        self.page.locator(loc.next_button_loc).locator('nth=8').click()
+        sleep(3)
